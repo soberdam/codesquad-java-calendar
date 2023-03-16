@@ -25,6 +25,7 @@ public class Calendar {
 		System.out.println("----------------------");
 		int maxDay = getMaxDaysOfMonth(year, month);
 		int weekIndex = 0;
+		
 		for(int i=0; i<WEEKDAYS.length; i++) {
 			if(WEEKDAYS[i].equals(weekday)) {
 				weekIndex = i;
