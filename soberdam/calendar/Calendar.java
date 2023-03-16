@@ -5,7 +5,7 @@ public class Calendar {
 	
 	public int getMaxDaysOfMonth(int month) {
 		
-		return MAX_DAYS[month];
+		return MAX_DAYS[month-1];
 	}
 	
 	public void printSampleCalendar() {
@@ -31,7 +31,7 @@ public class Calendar {
 		int month = scanner.nextInt();
 		
 		
-		System.out.printf("%d월은 %d일까지 있습니다.", month, cal.getMaxDaysOfMonth(month-1));
+		System.out.printf("%d월은 %d일까지 있습니다.", month, cal.getMaxDaysOfMonth(month));
 		cal.printSampleCalendar();
 		scanner.close();
 	}
