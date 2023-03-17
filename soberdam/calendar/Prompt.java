@@ -1,7 +1,6 @@
 package soberdam.calendar;
 
 
-import java.text.ParseException;
 import java.util.Scanner;
 
 public class Prompt {
@@ -15,7 +14,7 @@ public class Prompt {
 
 	}
 
-	public void runPrompt() throws ParseException {
+	public void runPrompt() {
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
 
@@ -77,18 +76,18 @@ public class Prompt {
 		System.out.println("[일정 검색]");
 		System.out.println("날짜를 입력해 주세요. (yyyy-MM-dd)");
 		String date = scanner.next();
-		String plan = "";
-		try {
-			plan = cal.searchPlan(date);
-		} catch(ParseException e) {
-			e.printStackTrace();
-			System.err .println("일정 검색중 오류가 발생했습니다.");
+		PlanItem plan;
+		plan = cal.searchPlan(date);
+		if (plan != null) {
+			System.out.println(plan.getDetail());
+		} else {
+			System.out.println("일정이 없습니다.");
 		}
-		System.out.println(plan);
+		
 		
 	}
 
-	private void cmdRegister(Scanner scanner, Calendar cal) throws ParseException {
+	private void cmdRegister(Scanner scanner, Calendar cal) {
 		System.out.println("[새 일정 등록]");
 		System.out.println("날짜를 입력해 주세요. (yyyy-MM-dd)");
 		String date = scanner.next();
@@ -100,7 +99,7 @@ public class Prompt {
 		
 	}
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 
 		// 셸 실행
 		Prompt prompt = new Prompt();
