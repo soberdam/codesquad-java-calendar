@@ -28,13 +28,11 @@ public class Prompt {
 				continue;
 			}
 			
-			System.out.println("첫번째 요일을 입력하세요. (SU, MO, WE, TH, FR, SA)");
-			System.out.print("WEEKDAY> ");
-			weekday = scanner.next();
+			
 			
 			
 
-			cal.printCalendar(year, month, weekday);
+			cal.printCalendar(year, month);
 
 		}
 
