@@ -20,23 +20,34 @@ public class Prompt {
 		Calendar cal = new Calendar();
 
 		printMenu();
-		while (true) {
+		boolean is_Loop = true;
+		while (is_Loop) {
 			System.out.println("명령 (1, 2, 3, h, q)");
 			String cmd = scanner.next();
-			if(cmd.equals("1")) cmdRegister(scanner, cal);
-			else if(cmd.equals("2")) cmdSearch(scanner, cal);
-			else if(cmd.equals("3")) cmdCal(scanner, cal);
-			else if(cmd.equals("h")) printMenu();
-			else if(cmd.equals("q")) break;
+			switch(cmd) {
+			case "1": 
+				cmdRegister(scanner, cal);
+				break;
+			case "2": 
+				cmdSearch(scanner, cal);
+				break;
+			case "3": 
+				cmdCal(scanner, cal);
+				break;
+			case "h": 
+				printMenu();
+				break;
+			case "q": 
+				is_Loop = false;
+				break;
+			}
 			
 		}
-
 		System.out.println("Bye~");
 		scanner.close();
 	}
 
 	private void cmdCal(Scanner scanner, Calendar cal) {
-
 		int month = 0;
 		int year = 0;
 
